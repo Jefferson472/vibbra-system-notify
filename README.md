@@ -1,6 +1,128 @@
-# notify-system
+# vibbra-notify-system
 
 Sistema de Notificação de Mensagens em Python e Django
+
+## Sobre o Projeto
+
+Sistema de notificação de mensagens desenvolvido em Python com o Framework Django. Este projeto visa fornecer uma plataforma única para quem necessita integrar notificações em diversos canais, como Web Push, E-mail e SMS.
+O público-alvo são profissionais de tecnologia que buscam uma solução centralizada para a gestão de notificações. Seja para enviar alertas, atualizações ou emails promocionais.
+
+### Funcionalidades Principais
+
+1. Tela de Configuração
+
+- Permite ao usuário criar um aplicativo e definir os canais de notificação desejados (Web Push, E-mail, SMS).
+- Configuração por canal (Web Push, E-mail, SMS) para personalização detalhada.
+
+2. Tela de Setup Web Push
+
+- Configuração de dados básicos como nome, endereço e ícone do site.
+- Personalização de mensagens de permissão permitindo alterar texto da mensagem e dos botões permitir/negar.
+- Configuração da notificação de boas vindas, permitindo a personalizando dos textos, títulos e links.
+
+3. Tela de Setup E-mail
+
+- Configuração de dados técnicos do servidor SMTP (nome, porta, login, senha).
+- Definição de dados de envio (nome e e-mail do remetente).
+- Submissão de templates de e-mail em formato HTML.
+
+4. Tela de Setup SMS
+
+- Configuração de provedor de SMS integrado (provedor, login, senha).
+
+5. Tela de Histórico de Notificações
+
+- Exibição do resumo das últimas notificações enviadas com filtros específicos (data, canal, origem).
+- Possibilidade de exportar os dados para PDF e Excel.
+- Visualização detalhada das informações de cada notificação contendo as informações: canal de envio, data e hora de envio e recebimento, confirmação de leitura, conteúdo da notificação (título, mensagem, link de direcionamento, conteúdo do e-mail).
+
+6. Tela de Envio Manual de Notificações
+
+- Interface para envio manual de notificações via Web Push, E-mail e SMS.
+    - **Web Push**: Contém a audiência e dados da mensagem (título, texto da mensagem, ícone e link destino);
+    - **SMS**: Telefone dos usuários e texto da mensagem;
+    - **Email**: Email dos destinatários e templates existentes;
+- Preenchimento de dados da mensagem e envio após confirmação.
+
+
+## TODO
+
+#### 1. Avaliação do Escopo e Reuniões de Alinhamento (**Subtotal: 15 horas**)
+- [x] **Avaliação detalhada do escopo do projeto** (10 horas)
+- [x] **Reuniões de alinhamento e esclarecimento de dúvidas** (5 horas)
+
+#### 2. Configuração Inicial do Projeto (**Subtotal: 22 horas**)
+- [ ] **Configurar ambiente de desenvolvimento** (**Subtotal: 3 horas**)
+  - [ ] **Instalar Python e Django** (1 horas)
+  - [ ] **Configurar o Poetry para gerenciar dependências** (1 horas)
+  - [ ] **Configurar banco de dados (Postgres)** (1 horas)
+
+- [ ] **Criar estrutura básica do projeto Django** (**Subtotal: 4 horas**)
+  - [ ] **Criar novo projeto Django** (1 hora)
+  - [ ] **Configurar settings do projeto** (2 horas)
+  - [ ] **Criar aplicação principal do projeto** (1 hora)
+
+- [ ] **Implementar sistema de login e senha** (**Subtotal: 15 horas**)
+  - [ ] **Configurar autenticação padrão do Django** (2 horas)
+  - [ ] **Criar modelo de usuário personalizado** (3 horas)
+  - [ ] **Implementar views e templates de login e registro** (4 horas)
+  - [ ] **Implementar recuperação de senha** (3 horas)
+  - [ ] **Testes de funcionalidade de login e senha** (3 horas)
+
+#### 3. Telas de Configuração (**Subtotal: 22 horas**)
+- [ ] **Criar interface de usuário para configuração** (8 horas)
+- [ ] **Implementar lógica para criação de aplicativos** (4 horas)
+- [ ] **Configuração de canais (Web Push, E-mail, SMS)** (6 horas)
+- [ ] **Validação e testes** (4 horas)
+
+#### 4. Telas de Setup Web Push (**Subtotal: 26 horas**)
+- [ ] **Desenvolver interface de usuário para setup de Web Push** (6 horas)
+- [ ] **Configuração de dados básicos (nome, endereço, ícone)** (4 horas)
+- [ ] **Implementar lógica para personalização de mensagens de permissão** (6 horas)
+- [ ] **Implementar lógica para personalização de notificações de boas-vindas** (6 horas)
+- [ ] **Validação e testes** (4 horas)
+
+#### 5. Tela de Setup E-mail (**Subtotal: 24 horas**)
+- [ ] **Desenvolver interface de usuário para setup de E-mail** (6 horas)
+- [ ] **Configuração de dados técnicos do servidor SMTP** (4 horas)
+- [ ] **Implementar lógica para dados de envio (nome e e-mail do remetente)** (4 horas)
+- [ ] **Implementar submissão de templates de e-mail (upload e armazenamento)** (6 horas)
+- [ ] **Validação e testes** (4 horas)
+
+#### 6. Tela de Setup SMS (**Subtotal: 10 horas**)
+- [ ] **Desenvolver interface de usuário para setup de SMS** (4 horas)
+- [ ] **Configuração de provedor de SMS integrado (login, senha)** (4 horas)
+- [ ] **Validação e testes** (2 horas)
+
+#### 7. Tela de Histórico de Notificações (**Subtotal: 30 horas**)
+- [ ] **Desenvolver interface de usuário para histórico de notificações** (6 horas)
+- [ ] **Implementar filtros de busca (data, canal, origem)** (6 horas)
+- [ ] **Implementar exportação de dados para PDF e Excel** (8 horas)
+- [ ] **Implementar visualização detalhada de notificações** (6 horas)
+- [ ] **Validação e testes** (4 horas)
+
+#### 8. Tela de Envio Manual de Notificações (**Subtotal: 30 horas**)
+- [ ] **Desenvolver interface de usuário para envio manual (Web Push, E-mail, SMS)** (8 horas)
+- [ ] **Implementar lógica de envio de Web Push** (6 horas)
+- [ ] **Implementar lógica de envio de E-mail** (6 horas)
+- [ ] **Implementar lógica de envio de SMS** (6 horas)
+- [ ] **Validação e testes** (4 horas)
+
+#### 9. Deploy (**Subtotal: 10 horas**)
+- [ ] **Configuração do ambiente de produção** (**Subtotal: 3 horas**)
+  - [ ] **Configurar servidor Render** (2 horas)
+  - [ ] **Configurar banco de dados de produção** (1 horas)
+
+- [ ] **Configurar CI/CD** (**Subtotal: 7 horas**)
+  - [ ] **Configurar pipeline de CI/CD (GitLab CI)** (4 horas)
+  - [ ] **Testar e validar a pipeline de CI/CD** (3 horas)
+
+### Total Geral
+**Estimativa total: 194 horas**
+
+
+## Estimativa em DIAS do prazo de entrega:
+**Estimativa total: 60 dias**
 
 ## Getting started
 
