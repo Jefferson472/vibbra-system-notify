@@ -51,62 +51,62 @@ O público-alvo são profissionais de tecnologia que buscam uma solução centra
 - [x] **Avaliação detalhada do escopo do projeto** (10 horas)
 - [x] **Reuniões de alinhamento e esclarecimento de dúvidas** (5 horas)
 
-#### 2. Configuração Inicial do Projeto (**Subtotal: 22 horas**)
-- [ ] **Configurar ambiente de desenvolvimento** (**Subtotal: 3 horas**)
-  - [ ] **Instalar Python e Django** (1 horas)
-  - [ ] **Configurar o Poetry para gerenciar dependências** (1 horas)
-  - [ ] **Configurar banco de dados (Postgres)** (1 horas)
+#### 2. Configuração Inicial do Projeto (**Subtotal: 6 horas**)
+- [x] **Configurar ambiente de desenvolvimento** (**Subtotal: 1 horas**)
+  - [x] **Instalar Python e Django**
+  - [x] **Configurar o Poetry para gerenciar dependências**
+  - [x] **Configurar banco de dados (Postgres)**
 
-- [ ] **Criar estrutura básica do projeto Django** (**Subtotal: 4 horas**)
-  - [ ] **Criar novo projeto Django** (1 hora)
-  - [ ] **Configurar settings do projeto** (2 horas)
-  - [ ] **Criar aplicação principal do projeto** (1 hora)
+- [x] **Criar estrutura básica do projeto Django** (**Subtotal: 2 horas**)
+  - [x] **Criar novo projeto Django**
+  - [x] **Configurar settings do projeto**
+  - [x] **Criar aplicação principal do projeto**
 
-- [ ] **Implementar sistema de login e senha** (**Subtotal: 15 horas**)
-  - [ ] **Configurar autenticação padrão do Django** (2 horas)
-  - [ ] **Criar modelo de usuário personalizado** (3 horas)
-  - [ ] **Implementar views e templates de login e registro** (4 horas)
-  - [ ] **Implementar recuperação de senha** (3 horas)
-  - [ ] **Testes de funcionalidade de login e senha** (3 horas)
+- [x] **Implementar sistema de login e senha** (**Subtotal: 3 horas**)
+  - [x] **Configurar autenticação padrão do Django**
+  - [x] **Criar modelo de usuário personalizado**
+  - [x] **Implementar views e templates de login e registro**
+  - [x] **Implementar recuperação de senha**
+  - [x] **Testes de funcionalidade de login e senha**
 
-#### 3. Telas de Configuração (**Subtotal: 22 horas**)
-- [ ] **Criar interface de usuário para configuração** (8 horas)
-- [ ] **Implementar lógica para criação de aplicativos** (4 horas)
-- [ ] **Configuração de canais (Web Push, E-mail, SMS)** (6 horas)
-- [ ] **Validação e testes** (4 horas)
+#### 3. Telas de Configuração (**Subtotal: 8 horas**)
+- [ ] **Criar interface de usuário para configuração** (2 horas)
+- [ ] **Implementar lógica para criação de aplicativos** (2 horas)
+- [ ] **Configuração de canais (Web Push, E-mail, SMS)** (2 horas)
+- [ ] **Validação e testes** (1 horas)
 
-#### 4. Telas de Setup Web Push (**Subtotal: 26 horas**)
-- [ ] **Desenvolver interface de usuário para setup de Web Push** (6 horas)
-- [ ] **Configuração de dados básicos (nome, endereço, ícone)** (4 horas)
-- [ ] **Implementar lógica para personalização de mensagens de permissão** (6 horas)
-- [ ] **Implementar lógica para personalização de notificações de boas-vindas** (6 horas)
-- [ ] **Validação e testes** (4 horas)
+#### 4. Telas de Setup Web Push (**Subtotal: 9 horas**)
+- [ ] **Desenvolver interface de usuário para setup de Web Push** (1 horas)
+- [ ] **Configuração de dados básicos (nome, endereço, ícone)** (2 horas)
+- [ ] **Implementar lógica para personalização de mensagens de permissão** (3 horas)
+- [ ] **Implementar lógica para personalização de notificações de boas-vindas** (2 horas)
+- [ ] **Validação e testes** (1 horas)
 
-#### 5. Tela de Setup E-mail (**Subtotal: 24 horas**)
-- [ ] **Desenvolver interface de usuário para setup de E-mail** (6 horas)
-- [ ] **Configuração de dados técnicos do servidor SMTP** (4 horas)
-- [ ] **Implementar lógica para dados de envio (nome e e-mail do remetente)** (4 horas)
-- [ ] **Implementar submissão de templates de e-mail (upload e armazenamento)** (6 horas)
-- [ ] **Validação e testes** (4 horas)
+#### 5. Tela de Setup E-mail (**Subtotal: 10 horas**)
+- [ ] **Desenvolver interface de usuário para setup de E-mail** (1 horas)
+- [ ] **Configuração de dados técnicos do servidor SMTP** (2 horas)
+- [ ] **Implementar lógica para dados de envio (nome e e-mail do remetente)** (2 horas)
+- [ ] **Implementar submissão de templates de e-mail (upload e armazenamento)** (4 horas)
+- [ ] **Validação e testes** (1 horas)
 
 #### 6. Tela de Setup SMS (**Subtotal: 10 horas**)
 - [ ] **Desenvolver interface de usuário para setup de SMS** (4 horas)
 - [ ] **Configuração de provedor de SMS integrado (login, senha)** (4 horas)
 - [ ] **Validação e testes** (2 horas)
 
-#### 7. Tela de Histórico de Notificações (**Subtotal: 30 horas**)
-- [ ] **Desenvolver interface de usuário para histórico de notificações** (6 horas)
-- [ ] **Implementar filtros de busca (data, canal, origem)** (6 horas)
-- [ ] **Implementar exportação de dados para PDF e Excel** (8 horas)
-- [ ] **Implementar visualização detalhada de notificações** (6 horas)
-- [ ] **Validação e testes** (4 horas)
+#### 7. Tela de Histórico de Notificações (**Subtotal: 10 horas**)
+- [ ] **Desenvolver interface de usuário para histórico de notificações** (1 horas)
+- [ ] **Implementar filtros de busca (data, canal, origem)** (2 horas)
+- [ ] **Implementar exportação de dados para PDF e Excel** (4 horas)
+- [ ] **Implementar visualização detalhada de notificações** (2 horas)
+- [ ] **Validação e testes** (1 horas)
 
-#### 8. Tela de Envio Manual de Notificações (**Subtotal: 30 horas**)
-- [ ] **Desenvolver interface de usuário para envio manual (Web Push, E-mail, SMS)** (8 horas)
+#### 8. Tela de Envio Manual de Notificações (**Subtotal: 16 horas**)
+- [ ] **Desenvolver interface de usuário para envio manual (Web Push, E-mail, SMS)** (2 horas)
 - [ ] **Implementar lógica de envio de Web Push** (6 horas)
-- [ ] **Implementar lógica de envio de E-mail** (6 horas)
+- [ ] **Implementar lógica de envio de E-mail** (1 horas)
 - [ ] **Implementar lógica de envio de SMS** (6 horas)
-- [ ] **Validação e testes** (4 horas)
+- [ ] **Validação e testes** (1 horas)
 
 #### 9. Deploy (**Subtotal: 10 horas**)
 - [ ] **Configuração do ambiente de produção** (**Subtotal: 3 horas**)
@@ -118,11 +118,11 @@ O público-alvo são profissionais de tecnologia que buscam uma solução centra
   - [ ] **Testar e validar a pipeline de CI/CD** (3 horas)
 
 ### Total Geral
-**Estimativa total: 194 horas**
+**Estimativa total: 94 horas**
 
 
 ## Estimativa em DIAS do prazo de entrega:
-**Estimativa total: 60 dias**
+**Estimativa total: 30 dias**
 
 ## Getting started
 
