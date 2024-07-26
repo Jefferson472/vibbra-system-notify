@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "vibbra-notify-system"
+version = "0.1.0"
+description = ""
+authors = ["Jefferson Miranda <jefferson472@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.7"
+python-decouple = "^3.8"
+gunicorn = "^22.0.0"
+psycopg = "^3.2.1"
+whitenoise = "^6.7.0"
+django-allauth = "^0.63.6"
+django-crispy-forms = "^2.3"
+crispy-bootstrap5 = "^2024.2"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.1"
+taskipy = "^1.13.0"
+django-debug-toolbar = "^4.4.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+lint = 'ruff check . && ruff check . --diff'
+format = 'ruff check . --fix && ruff format .'
+migration = 'python src/manage.py makemigrations && python src/manage.py migrate --settings=setup.settings.local'
+runserver = 'python src/manage.py runserver --settings=setup.settings.local'
+
+[tool.ruff]
+extend-exclude = ['migrations', 'manage.py']
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore "E402", "F403", "F405" (import violations) in __init__.py files.
+# Ignore "S" (flake8-bandit) and "N802" (function name should be lowercase) in tests and docs.
+# Ignore "RUF" (Ruff-specific rules) and "I" (isort) in migrations.
+"__init__.py" = ["E402", "F403", "F405"]
+"**/{tests,docs}/*" = ["E402", "F403", "F405", "S", "N802"]
+"**/*test*.py" = ["E402", "F403", "F405", "S", "N802"]
+"**/{settings}/*" = ["E402", "F403", "F405", "E501"]
+"**/migrations/*" = ["RUF", "I"]
+
+[tool.ruff.lint.isort]
+section-order = ["future", "standard-library", "django", "third-party", "first-party", "local-folder"]
+lines-after-imports = 2
+
+[tool.ruff.lint.isort.sections]
+# Group all Django imports into a separate section.
+"django" = ["django"]

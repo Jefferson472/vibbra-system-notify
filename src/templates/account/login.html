@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<div class="mx-auto mt-5 pt-5" style="max-width: 400px;">
+  <h1>{% trans "Sign In" %}</h1>
+
+  <p>
+    Se você ainda não criou uma conta, por favor
+    <a href="{{ signup_url }}">se cadastre</a> primeiro.
+  </p>
+
+  <form class="login" method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+
+    <button class="btn btn-primary btn-block" type="submit">{% trans "Sign In" %}</button>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% if not '/accounts/' in request.path %}
+<nav class="col-md-2 d-none d-md-block bg-light sidebar" style="height: 100vh;">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="bi bi-app-indicator"></i>
+          Web Push
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="bi bi-envelope-at"></i>
+          Email
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="bi bi-bell"></i>
+          SMS 
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="bi bi-journals"></i>
+          Histórico de Envio
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{% endif %}
