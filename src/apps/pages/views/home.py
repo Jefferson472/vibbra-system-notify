@@ -26,7 +26,7 @@ class HomePage(TemplateView):
             apps.append({
                 "id": app.id,
                 "name": app.name,
-                "channels": filter(lambda c: c.app == app, channels)
+                "channels": list(filter(lambda c: c.app == app, channels))
             })
 
         context.update({

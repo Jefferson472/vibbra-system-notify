@@ -30,6 +30,7 @@ lint = 'ruff check . && ruff check . --diff'
 format = 'ruff check . --fix && ruff format .'
 migration = 'python src/manage.py makemigrations && python src/manage.py migrate --settings=setup.settings.local'
 runserver = 'python src/manage.py runserver --settings=setup.settings.local'
+test = 'python src/manage.py test apps --failfast --settings=setup.settings.local'
 
 [tool.ruff]
 extend-exclude = ['migrations', 'manage.py']
@@ -44,7 +45,7 @@ select = ['I', 'F', 'E', 'W', 'PL', 'PT']
 # Ignore "RUF" (Ruff-specific rules) and "I" (isort) in migrations.
 "__init__.py" = ["E402", "F403", "F405"]
 "**/{tests,docs}/*" = ["E402", "F403", "F405", "S", "N802"]
-"**/*test*.py" = ["E402", "F403", "F405", "S", "N802"]
+"**/*test*.py" = ["E402", "F403", "F405", "S", "N802", "PT009"]
 "**/{settings}/*" = ["E402", "F403", "F405", "E501"]
 "**/migrations/*" = ["RUF", "I"]
 
