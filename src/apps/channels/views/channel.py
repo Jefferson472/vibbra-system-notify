@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import DeleteView, ListView
 
 from apps.channels.models.channel import Channel
+from apps.channels.models.app import App
 
 
 class ChannelListView(LoginRequiredMixin, ListView):

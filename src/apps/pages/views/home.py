@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView
 
 from apps.channels.models import Channel
+from apps.channels.models.app import App
 
 
 class HomePage(TemplateView):
@@ -19,7 +20,7 @@ class HomePage(TemplateView):
         context = super().get_context_data(**kwargs)
         channels = Channel.objects.filter(
             app__user=self.request.user).select_related("app")
-        channels_apps = list(set(map(lambda c: c.app, channels)))
+        channels_apps = App.objects.filter(user=self.request.user)
 
         apps = []
         for app in channels_apps:
