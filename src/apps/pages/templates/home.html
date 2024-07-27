@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Meus Apps</h1>
   <div class="d-flex justify-content-end">
-    <a href="{% url 'create_app' %}" class="btn btn-success">+ Novo App</a>
+    <a href="{% url 'app_create' %}" class="btn btn-success">+ Novo App</a>
   </div>
   <div class="my-3 p-3 bg-body rounded shadow-sm">
     {% for app in apps %}
