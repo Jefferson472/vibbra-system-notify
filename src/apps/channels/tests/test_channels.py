@@ -45,3 +45,15 @@ class ChannelListViewTests(TestCase):
         url = reverse('channels_list', kwargs={'app_id': self.app.id})
         response = self.client.get(url)
         self.assertRedirects(response, f'/accounts/login/?next={url}')
+
+    def test_channel_delete_view(self):
+        channels_count = Channel.objects.count()
+
+        url = reverse('channel_delete', kwargs={'pk': self.channel1.id})
+        response = self.client.post(url, follow=True)
+
+        self.assertEqual(Channel.objects.count(), channels_count - 1)
+        self.assertRedirects(
+            response,
+            reverse('channels_list', kwargs={'app_id': self.channel1.app.id})
+        )

@@ -8,40 +8,51 @@ from apps.users.models import User
 class AppViewTests(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
-            email='test@test.com', password='testpassword')
-        self.client.login(email='test@test.com', password='testpassword')
-        self.url = reverse('app_create')
+            email="test@test.com", password="testpassword"
+        )
+        self.client.login(email="test@test.com", password="testpassword")
+        self.url = reverse("app_create")
 
     def test_app_create_url_resolves(self):
-        self.assertEqual(reverse('app_create'), '/app/create/')
-        self.assertEqual(resolve('/app/create/').view_name, 'app_create')
+        self.assertEqual(reverse("app_create"), "/app/create/")
+        self.assertEqual(resolve("/app/create/").view_name, "app_create")
 
     def test_app_creation_view(self):
         # Check the view is accessible and the form works as expected
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'app/app_form.html')
+        self.assertTemplateUsed(response, "app/app_form.html")
 
         # Create a new app
-        response = self.client.post(self.url, {'name': 'Test App'})
+        response = self.client.post(self.url, {"name": "Test App"})
         self.assertEqual(response.status_code, 302)  # Check for redirect
-        self.assertTrue(App.objects.filter(name='Test App', user=self.user).exists())
+        self.assertTrue(App.objects.filter(name="Test App", user=self.user).exists())
 
         # Check the redirect URL
-        app = App.objects.get(name='Test App')
+        app = App.objects.get(name="Test App")
         self.assertRedirects(
-            response,
-            reverse('channels_list', kwargs={'app_id': app.id})
+            response, reverse("channels_list", kwargs={"app_id": app.id})
         )
 
     def test_redirect_if_not_authenticated(self):
         # Test that the view redirects if the user is not authenticated
         self.client.logout()
         response = self.client.get(self.url)
-        self.assertRedirects(response, f'/accounts/login/?next={self.url}')
+        self.assertRedirects(response, f"/accounts/login/?next={self.url}")
 
     def test_form_valid_sets_user(self):
         # Check that the form_valid method sets the user correctly
-        self.client.post(self.url, {'name': 'Test App'})
-        app = App.objects.get(name='Test App')
+        self.client.post(self.url, {"name": "Test App"})
+        app = App.objects.get(name="Test App")
         self.assertEqual(app.user, self.user)
+
+    def test_app_delete_view(self):
+        app = App.objects.create(name="Test App", user=self.user)
+        self.assertEqual(App.objects.count(), 1)
+
+        url = reverse("app_delete", kwargs={"pk": app.id})
+        response = self.client.post(url, follow=True)
+
+        self.assertEqual(App.objects.count(), 0)
+
+        self.assertRedirects(response, reverse("home_page"))
