@@ -70,10 +70,10 @@ O público-alvo são profissionais de tecnologia que buscam uma solução centra
   - [x] **Testes de funcionalidade de login e senha**
 
 #### 3. Telas de Configuração (**Subtotal: 8 horas**)
-- [ ] **Criar interface de usuário para configuração** (2 horas)
-- [ ] **Implementar lógica para criação de aplicativos** (2 horas)
-- [ ] **Configuração de canais (Web Push, E-mail, SMS)** (2 horas)
-- [ ] **Validação e testes** (1 horas)
+- [x] **Criar interface de usuário para configuração** (2 horas)
+- [x] **Implementar lógica para criação de aplicativos** (2 horas)
+- [x] **Configuração de canais (Web Push, E-mail, SMS)** (2 horas)
+- [x] **Validação e testes** (1 horas)
 
 #### 4. Telas de Setup Web Push (**Subtotal: 9 horas**)
 - [ ] **Desenvolver interface de usuário para setup de Web Push** (1 horas)
