@@ -1,1 +1,28 @@
 {% extends 'base.html' %}
+
+{% block content %}
+  <h1>Meus Apps</h1>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'create_app' %}" class="btn btn-success">+ Novo App</a>
+  </div>
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    {% for app in apps %}
+      <div class="d-block text-body-secondary pt-3 border-bottom">
+        <p class="pb-3 mb-0 small lh-sm">
+          <strong class="d-block text-gray-dark">{{ app.name }}</strong>
+        </p>
+        <div class="d-flex justify-content-between my-1">
+          <div>
+            {% for channel in app.channels %}
+              <span class="badge rounded-pill text-bg-primary">{{ channel.get_channel_type_display }} </span>
+            {% endfor %}
+          </div>
+
+          <div>
+            <span><a href="{% url 'channels_list' app_id=app.id %}">Ver App</a></span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
