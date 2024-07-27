@@ -1,8 +1,9 @@
 from .app import AppView
-from .channel import ChannelListView
+from .channel import ChannelDeleteView, ChannelListView
 
 
 __all__ = [
     'AppView',
-    'ChannelListView'
+    'ChannelListView',
+    'ChannelDeleteView',
 ]

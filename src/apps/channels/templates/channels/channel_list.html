@@ -90,9 +90,32 @@
                       <button type="button" class="btn btn-sm btn-primary">
                         <i class="bi bi-pencil"></i>
                       </button>
-                      <button type="button" class="btn btn-sm btn-danger">
-                          <i class="bi bi-trash"></i>
+                      <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                        data-channel-id="{{ channel.id }}"
+                      >
+                        <i class="bi bi-trash"></i>
                       </button>
+
+                      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="deleteModalLabel">Confirme a Exclusão</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Você tem certeza que deseja excluir este canal?
+                            </div>
+                            <div class="modal-footer">
+                              <form id="deleteForm" method="post" action="{% url 'channel_delete' channel.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 {% empty %}
