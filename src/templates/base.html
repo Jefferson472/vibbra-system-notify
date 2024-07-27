@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{% endblock %}</title>
+  <title>Vibbra Notify System{% block title %}{% endblock %}</title>
 
   <!-- Core theme CSS (includes Bootstrap)-->
   <link 
@@ -24,21 +24,20 @@
 </head>
 
 <body class="{% block bodyclass %}{% endblock bodyclass %}">
-  <div class="wrapper">
-    {% block sidebar %}
-      {% include 'layouts/sidebar.html' %}
-    {% endblock sidebar %}
-    <div class="main-panel">
-      {% block navigation %}
-        {% include 'layouts/navigation.html' %}
-      {% endblock navigation %}
+  {% block navigation %}
+    {% include 'layouts/navigation.html' %}
+  {% endblock navigation %}
 
-      {% block content %}{% endblock content %}
-
-      {% block footer %}
-        {% include 'layouts/footer.html' %}
-      {% endblock footer %}
+  <div class="container-fluid">
+    <div class="row">
+      {% block sidebar %}{% include 'layouts/sidebar.html' %}{% endblock sidebar %}
+      
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 mt-4">
+        {% block content %}{% endblock %}
+      </main>
     </div>
+
+    {% block footer %}{% include 'layouts/footer.html' %}{% endblock footer %}
   </div>
 
   {% include 'includes/scripts.html' %}
