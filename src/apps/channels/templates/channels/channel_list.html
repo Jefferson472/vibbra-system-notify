@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} | Configure Channels for {{ app.name }}{% endblock %}
+
+{% block content %}
+  <div class="d-flex justify-content-center">
+    <div class="col-sm-6 w-100">
+      <h1>Configure os Canais para {{ app.name }}</h1>
+
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Web Push</h4>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Envio de notificações push</li>
+                <li>Integração com navegadores</li>
+                <li>Notificações de permissão personalizáveis</li>
+                <li>Notificações de boas-vindas personalizáveis</li>
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary">Configurar Novo</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Email</h4>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Envio de emails em massa</li>
+                <li>Integração com servidor SMTP</li>
+                <li>Suporte a templates HTML</li>
+                <li>Monitoramento de entrega</li>
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary">Configurar Novo</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">SMS</h4>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Envio de SMS em massa</li>
+                <li>Integração com provedores de SMS</li>
+                <li>Configuração de login e senha</li>
+                <li>Monitoramento de entrega</li>
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary">Configurar Novo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="container mt-5">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="my-0 fw-normal">Channels Configuração</h4>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Tipo de Canal</th>
+                  <th scope="col" class="text-center">Ativo</th>
+                  <th scope="col" class="text-end">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for channel in object_list %}
+                  <tr>
+                    <td>{{ channel.get_channel_type_display }}</td>
+                    <td class="text-center">
+                      {% if channel.enabled %}
+                        <i class="bi bi-check-circle text-success"></i>
+                      {% else %}
+                        <i class="bi bi-x-circle text-danger"></i>
+                      {% endif %}
+                    </td>
+                    <td class="text-end">
+                      <button type="button" class="btn btn-sm btn-primary">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                      <button type="button" class="btn btn-sm btn-danger">
+                          <i class="bi bi-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                {% empty %}
+                  <tr><td colspan="3">Você ainda não configurou nenhum canal!</td></tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

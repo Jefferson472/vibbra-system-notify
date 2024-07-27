@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     # my-apps
     "apps.users",
-    "apps.pages"
+    "apps.pages",
+    "apps.channels",
 ]
 
 MIDDLEWARE = [
