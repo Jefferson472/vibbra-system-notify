@@ -11,7 +11,7 @@ class HomePageTests(TestCase):
         self.user = User.objects.create_user(email='test@teste.com', password='12345')
         self.app = App.objects.create(user=self.user, name='Test App')
         self.channel = Channel.objects.create(
-            app=self.app, channel_type='web_push', enabled=True)
+            app=self.app, channel_type='web_push', enabled=True, object_id=1)
         self.client.login(email='test@teste.com', password='12345')
 
     def test_home_page_url_resolves(self):

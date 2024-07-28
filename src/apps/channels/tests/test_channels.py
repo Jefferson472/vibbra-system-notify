@@ -15,15 +15,16 @@ class ChannelListViewTests(TestCase):
         self.app = App.objects.create(name='Test App', user=self.user)
         self.other_app = App.objects.create(name='Another App', user=self.user)
         self.channel1 = Channel.objects.create(
-            app=self.app, channel_type='web_push', enabled=True)
+            app=self.app, channel_type='web_push', enabled=True, object_id=1)
         self.channel2 = Channel.objects.create(
-            app=self.app, channel_type='email', enabled=False)
+            app=self.app, channel_type='email', enabled=False, object_id=1)
         self.channel3 = Channel.objects.create(
-            app=self.other_app, channel_type='sms', enabled=True)
+            app=self.other_app, channel_type='sms', enabled=True, object_id=1)
 
     def test_channels_list_url_resolves(self):
-        self.assertEqual(reverse('channels_list', kwargs={"app_id": 1}), '/channels/1/')
-        self.assertEqual(resolve('/channels/1/').view_name, 'channels_list')
+        self.assertEqual(reverse('channels_list', kwargs={"app_id": 1}),
+                         '/app/1/channels/')
+        self.assertEqual(resolve('/app/1/channels/').view_name, 'channels_list')
 
     def test_channel_list_view_authenticated(self):
         url = reverse('channels_list', kwargs={'app_id': self.app.id})
