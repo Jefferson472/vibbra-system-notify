@@ -1,12 +1,15 @@
+from datetime import datetime
 from typing import Any
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import BaseModelForm
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.template import Context
 from django.template import Template as DjangoTemplate
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.utils import timezone
+from django.views.generic import CreateView, DetailView, ListView
 
 from apps.channels.models.channel import Channel
 from apps.email_app.forms import EmailNotificationForm
@@ -60,5 +63,35 @@ class NotificationHistoryView(LoginRequiredMixin, ListView):
     context_object_name = 'notifications'
     paginate_by = 10
 
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['channels'] = Channel.objects.filter(app__user=self.request.user)
+        return context
+
     def get_queryset(self):
-        return super().get_queryset().filter(user=self.request.user)
+        qs = super().get_queryset().filter(user=self.request.user)
+
+        start_date = self.request.GET.get('start_date')
+        end_date = self.request.GET.get('end_date')
+        channel = self.request.GET.get('channel')
+        
+        if start_date:
+            start_date = datetime.strptime(start_date, '%Y-%m-%d')
+            qs = qs.filter(sent_at__gte=start_date)
+        if end_date:
+            end_date = datetime.strptime(end_date, '%Y-%m-%d')
+            end_date = end_date + timezone.timedelta(days=1)
+            qs = qs.filter(sent_at__lt=end_date)
+        if channel:
+            qs = qs.filter(channel_id=channel)
+
+        return qs
+
+
+class NotificationDetailView(DetailView):
+    model = EmailNotification
+    context_object_name = 'notification'
+
+    def get_object(self):
+        notification_id = self.kwargs.get('pk')
+        return get_object_or_404(EmailNotification, pk=notification_id)

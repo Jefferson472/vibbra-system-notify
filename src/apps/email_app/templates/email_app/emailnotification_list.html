@@ -2,6 +2,38 @@
 
 {% block content %}
   <h2>Histórico de Notificações</h2>
+
+  <div>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
+      Filtros
+    </button>
+  <div class="collapse" id="filterCollapse">
+    <div class="card card-body mt-3">
+      <form method="get">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="start_date">Data de Início:</label>
+            <input type="date" id="start_date" name="start_date" class="form-control" value="{{ request.GET.start_date }}">
+          </div>
+          <div class="col-md-6">
+            <label for="end_date">Data de Fim:</label>
+            <input type="date" id="end_date" name="end_date" class="form-control" value="{{ request.GET.end_date }}">
+          </div>
+          <div class="col-md-12 mt-3">
+            <label for="channel">Canal de Envio:</label>
+            <select id="channel" name="channel" class="form-control">
+              <option value="">Todos</option>
+              {% for channel in channels %}
+                <option value="{{ channel.id }}" {% if request.GET.channel == channel.id|stringformat:"s" %}selected{% endif %}>{{ channel }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Aplicar Filtros</button>
+      </form>
+    </div>
+  </div>
+
   <table class="table">
     <thead>
       <tr>
