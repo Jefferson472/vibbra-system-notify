@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} | Novo Canal de Email {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="mt-3">
+      <h2>Configuração do Canal</h2>
+      {{ form|crispy }}
+    </div>
+
+    <div class="mt-3">
+      <h2>Configuração do {{ type }}</h2>
+      {{ config_form|crispy }}
+    </div>
+
+    {% if template_form %}
+      <div class="mt-3">
+        <h2>Configuração do Template de Email</h2>
+        {{ template_form|crispy }}
+      </div>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">Cria Canal</button>
+  </form>
+</div>
+{% endblock %}

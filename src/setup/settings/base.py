@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "apps.users",
     "apps.pages",
     "apps.channels",
+    "apps.email_app",
 ]
 
 MIDDLEWARE = [

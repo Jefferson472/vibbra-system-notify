@@ -6,4 +6,4 @@ from .models import Channel
 class ChannelForm(forms.ModelForm):
     class Meta:
         model = Channel
-        fields = ['channel_type', 'enabled']
+        fields = ['name', 'enabled']

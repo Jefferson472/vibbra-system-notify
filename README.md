@@ -83,10 +83,10 @@ O público-alvo são profissionais de tecnologia que buscam uma solução centra
 - [ ] **Validação e testes** (1 horas)
 
 #### 5. Tela de Setup E-mail (**Subtotal: 10 horas**)
-- [ ] **Desenvolver interface de usuário para setup de E-mail** (1 horas)
-- [ ] **Configuração de dados técnicos do servidor SMTP** (2 horas)
-- [ ] **Implementar lógica para dados de envio (nome e e-mail do remetente)** (2 horas)
-- [ ] **Implementar submissão de templates de e-mail (upload e armazenamento)** (4 horas)
+- [x] **Desenvolver interface de usuário para setup de E-mail** (1 horas)
+- [x] **Configuração de dados técnicos do servidor SMTP** (2 horas)
+- [x] **Implementar lógica para dados de envio (nome e e-mail do remetente)** (2 horas)
+- [x] **Implementar submissão de templates de e-mail (upload e armazenamento)** (4 horas)
 - [ ] **Validação e testes** (1 horas)
 
 #### 6. Tela de Setup SMS (**Subtotal: 10 horas**)
