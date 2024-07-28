@@ -7,6 +7,26 @@
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
       Filtros
     </button>
+
+    <div class="btn-group">
+      <button class="btn btn-success dropdown-toggle" type="button" id="exportDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Exportar
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="exportDropdown">
+        <li>
+          <a onclick="Export(this)" class="dropdown-item" id="export-excel">
+            <i class="bi bi-file-earmark-excel-fill"></i> Exportar para Excel
+          </a>
+        </li>
+        <li>
+          <a onclick="ExportPDF(this)" class="dropdown-item" id="export-pdf">
+            <i class="bi bi-file-earmark-pdf-fill"></i> Exportar para PDF
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <div class="collapse" id="filterCollapse">
     <div class="card card-body mt-3">
       <form method="get">
@@ -55,9 +75,49 @@
         <td>{{ notification.subject }}</td>
         <td>{{ notification.template }}</td>
         <td>{{ notification.channel.name }}</td>
-        <td><a href=""><i class="bi bi-eye"></i></a></td>
+        <td><a href="{% url 'notification_detail' notification.id %}"><i class="bi bi-eye"></i></a></td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+  <script>
+    function ExportExcel(elem) {
+      var table = document.querySelector('table');
+      var wb = XLSX.utils.table_to_book(table);
+      var wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'binary' });
+
+      var blob = new Blob([s2ab(wbout)], { type: "application/octet-stream" });
+      var url = URL.createObjectURL(blob);
+
+      elem.setAttribute("href", url);
+      elem.setAttribute("download", "export_hitorico.xlsx");
+      return false;
+    }
+
+    function ExportPDF(elem) {
+      var { jsPDF } = window.jspdf;
+      var doc = new jsPDF();
+      var table = document.querySelector('table');
+      
+      doc.autoTable({ html: table });
+
+      var blob = doc.output('blob');
+      var url = URL.createObjectURL(blob);
+
+      elem.setAttribute("href", url);
+      elem.setAttribute("download", "export_historico.pdf");
+      return false;
+    }
+
+    function s2ab(s) {
+      var buf = new ArrayBuffer(s.length);
+      var view = new Uint8Array(buf);
+      for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+      return buf;
+    }
+  </script>
 {% endblock %}
