@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Detalhes da Notificação</h1>
+  <p><strong>Assunto:</strong> {{ notification.subject }}</p>
+  <p><strong>Mensagem:</strong></p>
+  <div>{{ notification.message|safe }}</div>
+  <p><strong>Destinatários:</strong> {{ notification.recipients }}</p>
+  <p><strong>Canal:</strong> {{ notification.channel }}</p>
+  <p><strong>Template:</strong> {{ notification.template.name }}</p>
+  <p><strong>Enviado em:</strong> {{ notification.sent_at }}</p>
+{% endblock %}

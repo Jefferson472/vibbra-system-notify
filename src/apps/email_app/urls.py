@@ -1,6 +1,10 @@
 from django.urls import path
 
-from .views.notification import EmailNotificationCreateView, NotificationHistoryView
+from .views.notification import (
+    EmailNotificationCreateView,
+    NotificationDetailView,
+    NotificationHistoryView
+)
 from .views.server import EmailServerConfigCreateView
 from .views.template import EmailTemplateUploadView
 
@@ -14,4 +18,6 @@ urlpatterns = [
           name='send_email_notification'),
      path('notification-history/', NotificationHistoryView.as_view(),
           name='notification_history'),
+     path('notification/<int:pk>/', NotificationDetailView.as_view(),
+          name='notification_detail'),
 ]
