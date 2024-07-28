@@ -10,8 +10,6 @@ MIDDLEWARE += [
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.ManifestStaticFilesStorage'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
