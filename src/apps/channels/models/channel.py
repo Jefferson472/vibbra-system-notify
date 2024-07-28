@@ -28,4 +28,4 @@ class Channel(models.Model):
     template = models.ForeignKey(Template, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return f"{self.get_channel_type_display()} for {self.app.name}"
+        return f"{self.get_channel_type_display()} - App: {self.app.name}"

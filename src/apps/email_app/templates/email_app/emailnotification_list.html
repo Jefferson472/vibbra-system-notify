@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Histórico de Notificações</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Data de Envio</th>
+        <th>Destinatários</th>
+        <th>Assunto</th>
+        <th>Mensagem</th>
+        <th>Canal</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for notification in notifications %}
+      <tr>
+        <td>{{ notification.id }}</td>
+        <td>{{ notification.sent_at }}</td>
+        <td>{{ notification.recipients }}</td>
+        <td>{{ notification.subject }}</td>
+        <td>{{ notification.template }}</td>
+        <td>{{ notification.channel.name }}</td>
+        <td><a href=""><i class="bi bi-eye"></i></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

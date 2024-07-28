@@ -68,7 +68,7 @@
       <div class="container mt-5">
         <div class="card">
           <div class="card-header">
-            <h4 class="my-0 fw-normal">Channels Configuração</h4>
+            <h4 class="my-0 fw-normal">Canais Configurados</h4>
           </div>
           <div class="card-body">
             <table class="table">
@@ -93,9 +93,16 @@
                       {% endif %}
                     </td>
                     <td class="text-end">
-                      <button type="button" class="btn btn-sm btn-primary">
-                        <i class="bi bi-pencil"></i>
-                      </button>
+                      {% if channel.enabled %}
+                        {% if channel.channel_type == 'email' %}
+                          {% url 'send_email_notification' channel_id=channel.id as send_url %}
+                        {% endif %}
+
+                        <a href="{{ send_url }}" class="btn btn-sm btn-success" title="Enviar Notificação">
+                          <i class="bi bi-send"></i>
+                        </a>
+                      {% endif %}
+
                       <button type="button" 
                         class="btn btn-sm btn-danger" 
                         data-bs-toggle="modal" 

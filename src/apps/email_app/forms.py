@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import ServerConfig, Template
+from .models import EmailNotification, ServerConfig, Template
 
 
 class ServerConfigForm(forms.ModelForm):
@@ -26,3 +26,9 @@ class TemplateForm(forms.ModelForm):
         widgets = {
             'template_file': forms.ClearableFileInput(attrs={'accept': '.html'})
         }
+
+
+class EmailNotificationForm(forms.ModelForm):
+    class Meta:
+        model = EmailNotification
+        fields = ['channel', 'recipients', 'subject', 'template']
