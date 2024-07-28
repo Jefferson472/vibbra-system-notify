@@ -95,16 +95,16 @@ O público-alvo são profissionais de tecnologia que buscam uma solução centra
 - [ ] **Validação e testes** (2 horas)
 
 #### 7. Tela de Histórico de Notificações (**Subtotal: 10 horas**)
-- [ ] **Desenvolver interface de usuário para histórico de notificações** (1 horas)
-- [ ] **Implementar filtros de busca (data, canal, origem)** (2 horas)
-- [ ] **Implementar exportação de dados para PDF e Excel** (4 horas)
-- [ ] **Implementar visualização detalhada de notificações** (2 horas)
+- [x] **Desenvolver interface de usuário para histórico de notificações** (1 horas)
+- [x] **Implementar filtros de busca (data, canal, origem)** (2 horas)
+- [x] **Implementar exportação de dados para PDF e Excel** (4 horas)
+- [x] **Implementar visualização detalhada de notificações** (2 horas)
 - [ ] **Validação e testes** (1 horas)
 
 #### 8. Tela de Envio Manual de Notificações (**Subtotal: 16 horas**)
-- [ ] **Desenvolver interface de usuário para envio manual (Web Push, E-mail, SMS)** (2 horas)
+- [x] **Desenvolver interface de usuário para envio manual (Web Push, E-mail, SMS)** (2 horas)
 - [ ] **Implementar lógica de envio de Web Push** (6 horas)
-- [ ] **Implementar lógica de envio de E-mail** (1 horas)
+- [x] **Implementar lógica de envio de E-mail** (1 horas)
 - [ ] **Implementar lógica de envio de SMS** (6 horas)
 - [ ] **Validação e testes** (1 horas)
 
