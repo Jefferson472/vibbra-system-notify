@@ -41,7 +41,7 @@ MANAGERS = ADMINS
 
 
 # EMAIL CONFIG
-EMAIL_HOST = "email-ssl.com.br"
+EMAIL_HOST = os.environ.get("EMAIL_HOST", default="")
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", default="")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", default="")
