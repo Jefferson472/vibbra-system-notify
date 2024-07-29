@@ -14,9 +14,10 @@ class Channel(models.Model):
     ]
 
     app = models.ForeignKey(App, on_delete=models.CASCADE, related_name='channels')
-    name = models.CharField(max_length=55)
-    channel_type = models.CharField(max_length=50, choices=CHANNEL_TYPES)
-    enabled = models.BooleanField(default=False)
+    name = models.CharField(max_length=55, verbose_name="Nome")
+    channel_type = models.CharField(max_length=50, choices=CHANNEL_TYPES,
+                                    verbose_name="Tipo de Canal")
+    enabled = models.BooleanField(default=True)
     content_type = models.ForeignKey(
         ContentType,
         limit_choices_to={'model__in': ('web_push', 'email', 'sms')},

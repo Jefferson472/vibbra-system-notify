@@ -1,4 +1,3 @@
-import requests
 from datetime import datetime
 from typing import Any
 
@@ -11,6 +10,8 @@ from django.template import Template as DjangoTemplate
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import CreateView, DetailView, ListView
+
+import requests
 
 from apps.channels.models.channel import Channel
 from apps.email_app.forms import EmailNotificationForm
@@ -82,13 +83,13 @@ class NotificationHistoryView(LoginRequiredMixin, ListView):
         start_date = self.request.GET.get('start_date')
         end_date = self.request.GET.get('end_date')
         channel = self.request.GET.get('channel')
-        
+
         if start_date:
             start_date = datetime.strptime(start_date, '%Y-%m-%d')
             qs = qs.filter(sent_at__gte=start_date)
         if end_date:
             end_date = datetime.strptime(end_date, '%Y-%m-%d')
-            end_date = end_date + timezone.timedelta(days=1)
+            end_date += timezone.timedelta(days=1)
             qs = qs.filter(sent_at__lt=end_date)
         if channel:
             qs = qs.filter(channel_id=channel)

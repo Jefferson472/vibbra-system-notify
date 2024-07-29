@@ -3,7 +3,7 @@ from django.urls import path
 from .views.notification import (
     EmailNotificationCreateView,
     NotificationDetailView,
-    NotificationHistoryView
+    NotificationHistoryView,
 )
 from .views.server import EmailServerConfigCreateView
 from .views.template import EmailTemplateUploadView
