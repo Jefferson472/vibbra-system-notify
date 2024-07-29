@@ -1,7 +1,7 @@
 # vibbra-notify-system
 
 <div align="center">
-![alt text](src/static/assets/Vibbra-Notify-system-invertido-transp.png)
+![alt text](src/static/assets/Vibbra-Notify-system-invertido.png)
 </div>
 
 ---
