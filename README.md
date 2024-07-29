@@ -17,6 +17,8 @@ O projeto está disponível no link abaixo para ser testado:
 
 - https://vibbra-notify-system.onrender.com/
 
+Vídeo demonstração do projeto: https://www.loom.com/share/e130ced3dcb54edfacdccb941bec6a7b?sid=1407997e-53dd-47c5-92ee-dcd76a1f3478
+
 ## Tecnologias utilizadas
 
 - [Python](https://www.python.org/) 3.11 como linguagem base
