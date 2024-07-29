@@ -164,7 +164,9 @@ Use os comandos abaixo para iniciar as instalação das dependências:
 poetry install 
 ```
 
- Após a instalação use os comandos abaixo para inicialização do Django (Esse projeto usa a lib [Taskpy](https://github.com/taskipy/taskipy), então os comandos abaixo nos ajudam a abstrair a iniciliazação do projeto):
+Após a instalação use os comandos abaixo para inicialização do Django (Esse projeto usa a lib [Taskpy](https://github.com/taskipy/taskipy), então os comandos abaixo nos ajudam a abstrair a iniciliazação do projeto):
+
+**IMPORTANTE**: Antes de rodar o projeto confirme que todas as variáveis de ambiente estão configuradas. Altere o arquivo `.env.examples` para `.env` e preencha as variáveis.
 
 ```python
 
