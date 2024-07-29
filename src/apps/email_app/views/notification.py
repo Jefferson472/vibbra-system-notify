@@ -1,3 +1,4 @@
+import requests
 from datetime import datetime
 from typing import Any
 
@@ -45,11 +46,18 @@ class EmailNotificationCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         form.instance.user = self.request.user
 
-        with open(form.instance.template.template_file.path, 'r', encoding='utf-8'
-                  ) as template_file:
-            template_content = template_file.read()
-        template = DjangoTemplate(template_content)
-        form.instance.message = template.render(Context({}))
+        try:
+            response = requests.get(form.instance.template.template_file.url)
+            response.raise_for_status()
+
+            template_content = response.text
+
+            template = DjangoTemplate(template_content)
+            form.instance.message = template.render(Context({}))
+
+        except requests.RequestException as e:
+            print(f"Erro ao acessar o arquivo: {e}")
+            form.add_error('template_file', 'Erro ao acessar o arquivo.')
 
         if form.is_valid():
             send_email_notification(notification=form.instance)

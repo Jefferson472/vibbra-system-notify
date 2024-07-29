@@ -17,6 +17,7 @@ crispy-bootstrap5 = "^2024.2"
 psycopg2 = "^2.9.9"
 boto3 = "^1.34.149"
 django-storages = "^1.14.4"
+requests = "^2.32.3"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.1"
