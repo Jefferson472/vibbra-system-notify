@@ -50,7 +50,7 @@ class EmailNotificationCreateView(LoginRequiredMixin, CreateView):
             response = requests.get(form.instance.template.template_file.url)
             response.raise_for_status()
 
-            template_content = response.text
+            template_content = response.content.decode('utf-8')
 
             template = DjangoTemplate(template_content)
             form.instance.message = template.render(Context({}))
