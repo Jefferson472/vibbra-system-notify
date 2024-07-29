@@ -15,7 +15,7 @@ from apps.channels.models.channel import Channel
 from apps.email_app.forms import EmailNotificationForm
 from apps.email_app.models import EmailNotification
 from apps.email_app.models.template import Template
-from apps.email_app.task import send_email_notification
+from apps.email_app.tasks import send_email_notification
 
 
 class EmailNotificationCreateView(LoginRequiredMixin, CreateView):
